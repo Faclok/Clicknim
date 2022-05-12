@@ -884,6 +884,12 @@ MonoBehaviour:
   platform: {fileID: 2114988495}
   Clips:
   - {fileID: 32900000, guid: cc381fbd95da53a4489510e8fce3363c, type: 3}
+  - {fileID: 32900000, guid: 860f0d07083dac6499d392ac95cc690f, type: 3}
+  - {fileID: 32900000, guid: f5d4c0c1d93fe904f9bced0600d414ea, type: 3}
+  - {fileID: 32900000, guid: a9f39555e135a184f9cb2bb54e73484c, type: 3}
+  - {fileID: 32900000, guid: 53bed8381f809ab41989f989f90e5a25, type: 3}
+  - {fileID: 32900000, guid: d8b06d8bab86e6d478550428c4dcec40, type: 3}
+  - {fileID: 32900000, guid: 154fbdddaf12f6b459b24bba6642a681, type: 3}
 --- !u!114 &945719843
 MonoBehaviour:
   m_ObjectHideFlags: 0

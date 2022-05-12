@@ -6,19 +6,21 @@ using System.Threading.Tasks;
 
 public class Spectrum : SettingPart
 {
-    [SerializeField] public FFTWindow window;
     [SerializeField] public Shoumen Prifab;
     private RectTransform rect;
-    private float[] spectrum = new float[SizeSpectrums];
+    private float[] spectrum = new float[Setting.SizeSpectrums];
+    private Shoumen[] array = new Shoumen[Setting.SizeSpectrums];
     public static float[] Sounds;
-    private Shoumen[] array = new Shoumen[SizeSpectrums];
-    public static int SizeSpectrums = 512;
     private Action<float[]> soundHz;
+    private Action ArgsSpectr;
 
     private void Awake()
     {
         rect = GetComponent<RectTransform>();
         Sounds = spectrum;
+        if (Setting.Form == SpectrumForm.Pitch)
+            ArgsSpectr += PitchFormat;
+        else ArgsSpectr += SpectrumFormat;
         Install();
         StartCoroutine(Fade());
     }
@@ -33,27 +35,32 @@ public class Spectrum : SettingPart
         };
     }
 
-    private void LateUpdate()
-    {
+    private void LateUpdate() =>
+        ArgsSpectr?.Invoke();
 
-        AudioListener.GetSpectrumData(spectrum, 0, window);
-    }
+    private void SpectrumFormat() => AudioListener.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);
+
+    private void PitchFormat() => AudioListener.GetOutputData(spectrum, 0);
 
     IEnumerator Fade()
     {
         for (; ; )
         {
-            // AudioListener.GetOutputData(spectrum, 0);
             soundHz?.Invoke(spectrum);
             yield return new WaitForSeconds(.04f);
         }
     }
-    private void ScaleTranslate(ref int i)
-    {
-        array[i].transform.localScale = Vector3.Lerp(array[i].transform.localScale, new Vector3(1, spectrum[i] * 1200f, 1), 0.5f);
-    }
-    private void Scale(ref int i)
-    {
-        array[i].transform.localScale = new Vector3(1, spectrum[i] * 1200f, 1);
-    }
+
+
+}
+public enum SpectrumForm
+{
+    Spectrum = 100,
+    Pitch = 1000
+}
+
+public enum ScaleLoad
+{
+    Fast,
+    Slow
 }

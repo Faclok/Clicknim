@@ -8,12 +8,15 @@ public class Setting : MonoBehaviour
     #region  Options
 
     public static bool isSpectrum;
+    public static int SizeSpectrums = 64;
+    public static SpectrumForm Form;
+    public static ScaleLoad ScaleLoad =ScaleLoad.Slow;
     public static Color ColorStart;
     public static Color ColorEnd;
 
     #endregion
     #region  MonoBehaviour
-    
+
     [SerializeField] private SettingIcon[] SettingNames;
     [SerializeField] private PlatformGame platformInfo;
     [SerializeField] private PlatformGame platformIcon;
@@ -25,7 +28,7 @@ public class Setting : MonoBehaviour
         if (Instances != null)
             foreach (var item in Instances)
                 Destroy(item);
-                
+
     }
 
     public static void Set_indexHow(int index)
@@ -39,7 +42,7 @@ public class Setting : MonoBehaviour
     private void Awake()
     {
         instance = this;
-     
+
         for (int i = 0; i < SettingNames.Length; i++)
         {
             SettingNames[i].index = i;

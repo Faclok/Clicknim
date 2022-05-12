@@ -11,8 +11,8 @@ public class SizeSpectrum : SettingPart
 
     public void Click()
     {
-        Spectrum.SizeSpectrums = GetSize(Spectrum.SizeSpectrums);
-        text.text = Spectrum.SizeSpectrums.ToString();
+        Setting.SizeSpectrums = GetSize(Setting.SizeSpectrums);
+        text.text = Setting.SizeSpectrums.ToString();
     }
     private int GetSize(int realSize)
     {

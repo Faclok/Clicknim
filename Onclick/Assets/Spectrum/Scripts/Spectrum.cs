@@ -2,34 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using System.Threading.Tasks;
 
-public class Spectrum : SettingPart
+public class Spectrum : MonoBehaviour
 {
-    [SerializeField] public Shoumen Prifab;
-    private RectTransform rect;
-    private float[] spectrum = new float[Setting.SizeSpectrums];
-    private Shoumen[] array = new Shoumen[Setting.SizeSpectrums];
-    public static float[] Sounds;
-    private Action<float[]> soundHz;
-    private Action ArgsSpectr;
+    private float[] spectrum = new float[SettingSpectrum.SizeSpectrums]; //value sounds
+    private Shoumen[] array = new Shoumen[SettingSpectrum.SizeSpectrums];//Lines install
+    private event Action<float[]> soundHz;                               //Подписчики - Lines
+    private event Action ArgsSpectr;                                     //Format Spectrum
 
     private void Awake()
     {
-        rect = GetComponent<RectTransform>();
-        Sounds = spectrum;
-        if (Setting.Form == SpectrumForm.Pitch)
-            ArgsSpectr += PitchFormat;
-        else ArgsSpectr += SpectrumFormat;
+        FormatSpectrum(ref SettingSpectrum.Form);
         Install();
         StartCoroutine(Fade());
     }
 
+    //подписка на Format Spectrum
+    private void FormatSpectrum(ref SpectrumForm form)
+    {
+        switch (form)
+        {
+            case SpectrumForm.Spectrum: ArgsSpectr += SpectrumFormat; break;
+            case SpectrumForm.Pitch: ArgsSpectr += PitchFormat; break;
+        }
+    }
+
+    //Install Lines
     public void Install()
     {
         for (int i = 0; i < spectrum.Length; i++)
         {
-            array[i] = Instantiate(Prifab.gameObject, transform, false).GetComponent<Shoumen>();
+            array[i] = Instantiate(PrifabUtility.Shoumen.gameObject, transform, false).GetComponent<Shoumen>();
             array[i].index = i;
             soundHz += array[i].ScaleSound;
         };
@@ -51,12 +54,11 @@ public class Spectrum : SettingPart
         }
     }
 
-
 }
 public enum SpectrumForm
 {
     Spectrum = 100,
-    Pitch = 1000
+    Pitch = 10
 }
 
 public enum ScaleLoad

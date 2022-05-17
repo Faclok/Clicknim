@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class LoadingData : MonoBehaviour
 {
@@ -15,8 +16,10 @@ public class LoadingData : MonoBehaviour
 
         Application.quitting += Quit;
 
-        Setting.Loading();
+        PrifabUtility.Loading();
+        SettingSpectrum.Loading();
         VideosContent.Loading();
+        Application.targetFrameRate = 65;
 
         isLoadData = true;
     }

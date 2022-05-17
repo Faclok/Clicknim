@@ -5,8 +5,6 @@ using System;
 
 public class SpawnInGame : MonoBehaviour
 {
-    public OnClick prifabPoint;
-    public float[] sounds;
     private float difficultyTime;
     private float realTime;
     private float hideTime = 0.9f;
@@ -57,7 +55,7 @@ public class SpawnInGame : MonoBehaviour
 
     private void InstallPoint(Vector3 vector)
     {
-        OnClick script = Instantiate(prifabPoint.gameObject, transform, false).GetComponent<OnClick>();
+        OnClick script = Instantiate(PrifabUtility.OnClick.gameObject, transform, false).GetComponent<OnClick>();
         script.transform.localPosition = vector;
         script.Visible = hideTime;
         script.number.text = PointsInstanste.ToString();

@@ -13,6 +13,13 @@ public class PointSpawn : MonoBehaviour
         return point;
     }
 
+    public static GameObject[] Instantiates(GameObject[] gameObjects, Transform backgroung)
+    {
+        GameObject[] arr = new GameObject[gameObjects.Length];
+        for (int i = 0; i < gameObjects.Length; i++)
+            arr[i] = Instantiate(gameObjects[i], backgroung, false);
+        return arr;
+    }
 
     public static Vector3 GetVector3Point()
     {

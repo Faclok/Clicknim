@@ -23,12 +23,14 @@ public class BeforeTheStart : MonoBehaviour
 
     private void InstallSetting()
     {
-        if (Setting.isSpectrum)
+        if (SettingSpectrum.isSpectrum)
             Instantiate(PrifabUtility.Spectrum.gameObject, ControllGame.Platform.transform, false);
     }
 
     public void ClickStart()
     {
+        if (skip.isPlaying)
+            return;
         skip.Play();
         ControllGame.StartGame();
     }

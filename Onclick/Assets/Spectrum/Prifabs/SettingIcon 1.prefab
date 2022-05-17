@@ -91,10 +91,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingParts:
-  - {fileID: 5593924840844143259, guid: d7dd2a7e154173d4b9d7f796903b7629, type: 3}
-  - {fileID: 7793426014310965162, guid: 9bb4474b38b243341ba753b24084b796, type: 3}
   - {fileID: 7859530930520018683, guid: 39265f81946a3844dbacb9072e0e9327, type: 3}
-  index: 0
+  setting: {fileID: 0}
 --- !u!114 &2508033435569679545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,4 +227,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Spectrum
+  m_Text: Game

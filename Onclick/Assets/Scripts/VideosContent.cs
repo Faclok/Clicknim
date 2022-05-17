@@ -68,3 +68,9 @@ public class VideosContent : MonoBehaviour
 
     #endregion
 }
+
+[System.Serializable]
+public class ObjToSave
+{
+    public int[] Scors = new int[3];
+}

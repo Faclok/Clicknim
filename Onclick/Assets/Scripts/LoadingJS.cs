@@ -20,18 +20,3 @@ public static class LoadingJS
         PlayerPrefs.SetString(name, JsonData);
     }
 }
-
-[System.Serializable]
-public class ObjToSave
-{
-    public int[] Scors = new int[3];
-}
-
-[System.Serializable]
-public class SaveSetting
-{
-    public bool Spectrum;
-    public Color ColorStart;
-    public Color ColorEnd;
-}
-

@@ -754,7 +754,7 @@ AudioSource:
   m_GameObject: {fileID: 739573776}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: ba76db0e967b19b42b28e5705ecfdd68, type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -765,7 +765,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 8.13081
+  MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -2043,7 +2043,6 @@ MonoBehaviour:
   TextTime: {fileID: 923289368}
   Platform: {fileID: 2028191503}
   VideoPlayer: {fileID: 739573778}
-  PrifabPoint: {fileID: 2762141613332606514, guid: 13a380f93f870284c962ea2d0b20a93c, type: 3}
   PlatformScore: {fileID: 1199274722}
 --- !u!1 &2027870489
 GameObject:

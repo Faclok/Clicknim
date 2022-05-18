@@ -11,7 +11,6 @@ public class Setting : MonoBehaviour
     private GameObject install;
     private void Awake()
     {
-
         install = Instantiate(prifb[0], transform, false);
     }
 

@@ -27,11 +27,22 @@ public class Menu : MonoBehaviour
         Destroy(PreviewVideo.gameObject);
         LoadingScene._LoadingSceneStart();
     }
-    
-    public static void SetVideoMenu(int indexClip)
+
+    private bool VisibleSetting = false;
+    public void ClickSetActive(Animation obj)
     {
-        menu.PreviewVideo.clip = VideosContent.GameVideos[indexClip];
-        SaveVideoClip = VideosContent.GameVideos[indexClip];
+        if (!obj.isPlaying)
+        {
+            obj.Play(VisibleSetting ? "SettingHide" : "SettingShow");
+            VisibleSetting = !VisibleSetting;
+        }
+    }
+
+
+    public static void SetVideoMenu(VideoClip clip)
+    {
+        menu.PreviewVideo.clip = clip;
+        SaveVideoClip = clip;
         menu.NameVideo.StartNewText();
         menu.PreviewVideo.Play();
         menu.PreviewVideo.isLooping = true;

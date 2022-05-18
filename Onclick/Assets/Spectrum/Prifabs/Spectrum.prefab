@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6237745160380640620}
   - component: {fileID: 8279378567670425769}
   - component: {fileID: 215631776397650587}
-  - component: {fileID: 7793426014310965162}
   m_Layer: 5
   m_Name: Spectrum
   m_TagString: Untagged
@@ -90,8 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebf8aa29ba341864c8f75e894a899e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  window: 3
-  Prifab: {fileID: 4053228339793540656, guid: 04e644477f036b2498cf1466c1cfbd70, type: 3}
 --- !u!114 &215631776397650587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,15 +115,3 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &7793426014310965162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6774139881451963702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85030fe9f36e989439c4e9cfd0e4aa6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

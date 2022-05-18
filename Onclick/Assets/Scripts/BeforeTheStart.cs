@@ -24,7 +24,7 @@ public class BeforeTheStart : MonoBehaviour
     private void InstallSetting()
     {
         if (SettingSpectrum.isSpectrum)
-            Instantiate(PrifabUtility.Spectrum.gameObject, ControllGame.Platform.transform, false);
+            Instantiate(PrifabUtility.Spectrum, ControllGame.Platform.transform, false);
     }
 
     public void ClickStart()

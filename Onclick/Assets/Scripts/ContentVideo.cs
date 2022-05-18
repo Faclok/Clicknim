@@ -8,23 +8,24 @@ public class ContentVideo : MonoBehaviour
 {
     public Text Name;
     private Animation anim;
-    public int indexClip;
+    private VideoClip Clip;
 
     private void Awake()
     {
         anim = GetComponent<Animation>();
         VideosContent.NullToPlayVideo += AnimStart;
     }
-    public void SetVideo(string name)
+    public void SetVideo(VideoClip clip)
     {
-        int[] save = VideosContent.Saves[name];
-        this.Name.text = name + $" \n<color=#00cc00>SIMPLE: {save[0]}</color>   <color=#ffd300>MEDLLE: {save[1]}</color>   <color=#ff0000>HARD: {save[2]}</color>";
+        Clip = clip;
+        int[] save = VideosContent.Saves[clip.name];
+        this.Name.text = clip.name + $" \n<color=#00cc00>SIMPLE: {save[0]}</color>   <color=#ffd300>MEDLLE: {save[1]}</color>   <color=#ff0000>HARD: {save[2]}</color>";
     }
     public void AnimStart() => anim.Play();
     public void Click()
     {
         anim.Play();
-        Menu.SetVideoMenu(indexClip);
+        Menu.SetVideoMenu(Clip);
     }
     private void OnDestroy() =>
         VideosContent.NullToPlayVideo -= AnimStart;

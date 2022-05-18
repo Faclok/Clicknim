@@ -15,11 +15,8 @@ public class VideosContent : MonoBehaviour
     public static event Action NullToPlayVideo;
     [SerializeField] public ContentVideo Prifab;
     [SerializeField] public PlatformGame platform;
-    [SerializeField] public VideoClip[] Clips;
-    public static VideoClip[] GameVideos;
     private Animation anim;
     private bool isVisibleTable = true;
-    private static bool isload;
 
     private void Awake()
     {
@@ -31,16 +28,12 @@ public class VideosContent : MonoBehaviour
 
     private void InstantiateVideo()
     {
-        GameVideos = Clips;
-        for (int i = 0; i < Clips.Length; i++)
+
+        for (int i = 0; i < Saves.Count; i++)
         {
-            if (!isload)
-                Saves.Add(Clips[i].name, LoadingJS.OnLoadObject(Clips[i].name, new ObjToSave()).Scors);
-            Prifab.SetVideo(Clips[i].name);
-            Prifab.indexClip = i;
-            Instantiate(Prifab.gameObject, platform.transform, false);
+            var install = Instantiate(Prifab, platform.transform, false);
+            install.SetVideo(PrifabUtility.Videos[i]);
         }
-        isload = true;
     }
 
     public void MoveTable()
@@ -55,9 +48,11 @@ public class VideosContent : MonoBehaviour
     #endregion
     #region LoadData 
 
-    public static void Loading()
+    public static void Loading(VideoClip[] Videos)
     {
         LoadingData.unloading += Unloading;
+        foreach (var item in Videos)
+            Saves.Add(item.name, LoadingJS.OnLoadObject(item.name, new ObjToSave()).Scors);
     }
 
     public static void Unloading()

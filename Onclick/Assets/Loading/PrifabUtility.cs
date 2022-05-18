@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class PrifabUtility : MonoBehaviour
 {
@@ -10,13 +11,13 @@ public class PrifabUtility : MonoBehaviour
     [SerializeField] private PointMove pointMove;
     [SerializeField] private Shoumen shoumen;
     [SerializeField] private OnClick OnClickPoint;
-    [SerializeField] private ColorSetting colorSetting;
+    [SerializeField] private VideoClip[] videos;
 
     public static PointMove PointMove;
     public static Spectrum Spectrum;
     public static Shoumen Shoumen;
     public static OnClick OnClick;
-    public static ColorSetting ColorSetting;
+    public static VideoClip[] Videos;
 
     private const string NameKey = "PrifabsUtility";
 
@@ -27,20 +28,22 @@ public class PrifabUtility : MonoBehaviour
             return;
 
         Spectrum = this.spectrum;
-        (PointMove = this.pointMove).GetComponent<Image>().color = save.pointMove;
-        (Shoumen = this.shoumen).GetComponent<Image>().color = save.shoumen;
-        (OnClick = this.OnClickPoint).GetComponent<Image>().color = save.onClick;
-        ColorSetting = this.colorSetting;
+        PointMove = this.pointMove;
+        Shoumen = this.shoumen;
+        OnClick = this.OnClickPoint;
+        Videos = this.videos;
 
         isLoad = true;
     }
 
-    private static PrifabsSave save;
 
     public static void Loading()
     {
-        save = LoadingJS.OnLoadObject(NameKey, new PrifabsSave());
         LoadingData.unloading += Unloading;
+        var save = LoadingJS.OnLoadObject(NameKey, new PrifabsSave());
+        PointMove.GetComponent<Image>().color = save.pointMove;
+        Shoumen.GetComponent<Image>().color = save.shoumen;
+        OnClick.GetComponent<Image>().color = save.onClick;
     }
 
     public static void Unloading() => LoadingJS.EXIT(NameKey, new PrifabsSave

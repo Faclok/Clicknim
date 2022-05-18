@@ -2,26 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class LoadingData : MonoBehaviour
 {
-    private static bool isLoadData;
     public static event Action unloading;
 
-    private void Awake()
+    private void Start()
     {
-        if (isLoadData)
-            return;
 
         Application.quitting += Quit;
 
+        VideosContent.Loading(PrifabUtility.Videos);
         PrifabUtility.Loading();
-        SettingSpectrum.Loading();
-        VideosContent.Loading();
-        Application.targetFrameRate = 65;
-
-        isLoadData = true;
+Application.targetFrameRate =90;
+        SceneManager.LoadScene(1);
     }
     private static void Quit() =>
         unloading?.Invoke();

@@ -16,8 +16,9 @@ public class LoadingData : MonoBehaviour
 
         VideosContent.Loading(PrifabUtility.Videos);
         PrifabUtility.Loading();
-Application.targetFrameRate =90;
         SceneManager.LoadScene(1);
+        Application.targetFrameRate = 90;
+    
     }
     private static void Quit() =>
         unloading?.Invoke();

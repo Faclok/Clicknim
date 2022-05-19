@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 8449811180444745637}
   - component: {fileID: 1258908011368111510}
   - component: {fileID: 422598537153734099}
+  - component: {fileID: 7382828597917168481}
   m_Layer: 5
   m_Name: PointGame
   m_TagString: Untagged
@@ -215,6 +216,26 @@ MonoBehaviour:
   Visible: 0
   number: {fileID: 7535641094585976628}
   Close: {fileID: 6279692925282675832, guid: cfc2fb8a83531bc4696657d31dfc559a, type: 3}
+--- !u!249 &7382828597917168481
+AreaEffector2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403743427493991035}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGlobalAngle: 0
+  m_ForceAngle: 0
+  m_ForceMagnitude: 10
+  m_ForceVariation: 0
+  m_ForceTarget: 0
+  m_Drag: 0
+  m_AngularDrag: 0
 --- !u!1 &9135348946758249447
 GameObject:
   m_ObjectHideFlags: 0

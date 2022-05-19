@@ -17,6 +17,8 @@ public class Menu : MonoBehaviour
     {
         menu = this;
     }
+
+
     public void ClickMenu()
     {
         if (PreviewVideo.clip == null)

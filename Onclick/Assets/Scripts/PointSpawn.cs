@@ -19,6 +19,7 @@ public class PointSpawn : MonoBehaviour
         for (int i = 0; i < gameObjects.Length; i++)
             arr[i] = Instantiate(gameObjects[i], backgroung, false);
         return arr;
+        
     }
 
     public static Vector3 GetVector3Point()

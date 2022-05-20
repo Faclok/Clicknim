@@ -7,12 +7,11 @@ public class OnClick : MonoBehaviour
     public float Visible;
     public Text number;
     public Sprite Close;
-    private Image thisImage;
+    public Image thisImage;
     private bool isClose;
 
     private void Awake()
     {
-        thisImage = GetComponent<Image>();
         GetComponent<Animation>().Play("Creat");
     }
     public void Click()

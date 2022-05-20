@@ -12,13 +12,16 @@ public class SettingOptionApplication : MonoBehaviour
     [SerializeField] private Text InfoProduct;
     private void Start()
     {
-        info = new string[] { $"Version game: {Application.version}", $"Version Unity: {Application.unityVersion}", $"Company: {Application.companyName}" };
+
         SetTextFrame(Application.targetFrameRate);
         SetTextInfo();
         slider.value = 0.22f;
     }
-    string[] info;
-    private void SetTextInfo() => InfoProduct.text = String.Join(" \n ", info);
+    private void SetTextInfo() => InfoProduct.text =
+     String.Join(" \n ", new string[] {
+         $"Version game: {Application.version}",
+         $"Version Unity: {Application.unityVersion}",
+         $"Company: {Application.companyName}" });
     public void Click() =>
           SetTextFrame(GetFrame(Application.targetFrameRate));
 

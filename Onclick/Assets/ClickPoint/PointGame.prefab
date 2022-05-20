@@ -216,6 +216,7 @@ MonoBehaviour:
   Visible: 0
   number: {fileID: 7535641094585976628}
   Close: {fileID: 6279692925282675832, guid: cfc2fb8a83531bc4696657d31dfc559a, type: 3}
+  thisImage: {fileID: 1207680348256384256}
 --- !u!249 &7382828597917168481
 AreaEffector2D:
   serializedVersion: 2

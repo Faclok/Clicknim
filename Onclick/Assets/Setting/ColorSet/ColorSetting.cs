@@ -22,6 +22,6 @@ public class ColorSetting : MonoBehaviour
         imageDisplay.sprite = newImage.sprite;
         imageDisplay.color = newImage.color;
         nameColor.text = name;
-        TextRGBA.text = "#" + ColorUtility.ToHtmlStringRGBA(newImage.color);
+        
     }
 }

@@ -16,7 +16,7 @@ public class SettingSpectrum : MonoBehaviour
         SettingSpectrumJS save = LoadingJS.OnLoadObject(NameKey, new SettingSpectrumJS());
         isSpectrum = save.isSpectrum;
         SizeSpectrums = save.SizeSpectrums;
-        Form =save.Form;
+        Form = save.Form;
         ScaleLoad = save.ScaleLoad;
         LoadingData.unloading += Unloading;
     }
@@ -24,15 +24,11 @@ public class SettingSpectrum : MonoBehaviour
         LoadingJS.EXIT(NameKey, new SettingSpectrumJS
         {
             isSpectrum = isSpectrum,
-            SizeSpectrums =SizeSpectrums,
-            Form =Form,
-            ScaleLoad =ScaleLoad
+            SizeSpectrums = SizeSpectrums,
+            Form = Form,
+            ScaleLoad = ScaleLoad
         });
 
-    private void Revers(SettingSpectrumJS save, SettingSpectrumJS real)
-    {
-        save.SizeSpectrums = real.SizeSpectrums;
-    }
 }
 
 [System.Serializable]

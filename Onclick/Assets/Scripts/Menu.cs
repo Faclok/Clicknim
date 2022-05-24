@@ -30,6 +30,8 @@ public class Menu : MonoBehaviour
         LoadingScene._LoadingSceneStart();
     }
 
+    public void ClickExit() => Application.Quit();
+
     private bool VisibleSetting = false;
     public void ClickSetActive(Animation obj)
     {

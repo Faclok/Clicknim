@@ -10,12 +10,11 @@ public class SettingOptionApplication : MonoBehaviour
     [SerializeField] Slider slider;
     [SerializeField] private Text TextFrameApp;
     [SerializeField] private Text InfoProduct;
+
     private void Start()
     {
-
         SetTextFrame(Application.targetFrameRate);
         SetTextInfo();
-        slider.value = 0.22f;
     }
     private void SetTextInfo() => InfoProduct.text =
      String.Join(" \n ", new string[] {
@@ -40,7 +39,9 @@ public class SettingOptionApplication : MonoBehaviour
     private int GetFrame(int realSize) =>
         Application.targetFrameRate = realSize == 120 ? 30 : realSize + 30;
 
-    public void ChangerVolume() =>
+    public void ChangerVolume()
+    {
         AudioListener.volume = slider.value;
-
+  
+    }
 }

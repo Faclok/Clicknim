@@ -55,7 +55,7 @@ public class SpawnInGame : MonoBehaviour
 
     private void InstallPoint(Vector3 vector)
     {
-        OnClick script = Instantiate(PrifabUtility.OnClick.gameObject, transform, false).GetComponent<OnClick>();
+        var script = Instantiate(PrifabUtility.OnClick.gameObject, transform, false).GetComponent<OnClick>();
         script.transform.localPosition = vector;
         script.Visible = hideTime;
         script.number.text = PointsInstanste.ToString();
@@ -70,7 +70,7 @@ public class SpawnInGame : MonoBehaviour
 
     private void OnDestroy()
     {
-        int[] scoreOld = VideosContent.Saves[Menu.SaveVideoClip.name];
+        var scoreOld = VideosContent.Saves[Menu.SaveVideoClip.name];
         if (scoreOld[(int)BeforeTheStart.lvl] < Score)
         {
             scoreOld[(int)BeforeTheStart.lvl] = Score;
